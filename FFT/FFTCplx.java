@@ -1,7 +1,11 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 class FFTCplx
 {
 	public final static int TailleFFTtest = 16;
-	public final static double Periode = 10;
+	public final static double Periode = 8;
 
 // 	private int taille;
 // 
@@ -55,6 +59,15 @@ class FFTCplx
 		for (int i = 0; i < resultat.length; ++i) {
 			System.out.print(i+" : ("+(float)resultat[i].reel()+" ; "+(float)resultat[i].imag()+"i)");
 			System.out.println(", ("+(float)resultat[i].mod()+" ; "+(float)resultat[i].arg()+" rad)");
+		}
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter("resultat_fft.txt"))) {
+			for (int i = 0; i < resultat.length; ++i) {
+				writer.write(i + " : (" + (float) resultat[i].reel() + " ; " + (float) resultat[i].imag() + "i)");
+				writer.write(", (" + (float) resultat[i].mod() + " ; " + (float) resultat[i].arg() + " rad)");
+				writer.newLine();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 }

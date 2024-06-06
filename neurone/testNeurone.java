@@ -4,8 +4,23 @@ public class testNeurone
 	{
 		// Tableau des entrées de la fonction ET (0 = faux, 1 = vrai)
 		final float[][] entrees = {{0, 0}, {0, 1}, {1, 0}, {1, 1}};
+		float perturbation = 0.1F;
 
-		final float[][] entrees_bruités = {{0.01F, 0.01F}, {0.01F, 0.99F}, {0.99F, 0.01F}, {0.99F, 0.01F}};
+		final float[][] entrees_bruités = new float[entrees.length][entrees[0].length];
+		//attribution des valeurs bruitées entre >0 et <1
+		// ne pas sortir de l'intervalle [0,1]
+		for (int i = 0; i < entrees.length; ++i)
+		{
+			for (int j = 0; j < entrees[i].length; ++j)
+			{
+				entrees_bruités[i][j] = entrees[i][j] + (float)(Math.random()*2*perturbation-perturbation);
+				if (entrees_bruités[i][j] < 0)
+					entrees_bruités[i][j] = 0;
+				else if (entrees_bruités[i][j] > 1)
+					entrees_bruités[i][j] = 1;
+			}
+		}
+
 
 		
 		// Tableau des sorties de la fonction ET
@@ -53,6 +68,7 @@ public class testNeurone
 				System.out.print(entrees_bruités[i][j]+" ");
 			System.out.print("\n");
 		}
+
 		//boucle pour tester a avec des entrees bruités
 		for (int i = 0; i < entrees.length; ++i)
 		{
