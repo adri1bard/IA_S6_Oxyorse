@@ -1,10 +1,14 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class testNeurone
 {
 	public static void main(String[] args)
 	{
 		// Tableau des entrées de la fonction ET (0 = faux, 1 = vrai)
 		final float[][] entrees = {{0, 0}, {0, 1}, {1, 0}, {1, 1}};
-		float perturbation = 0.1F;
+		float perturbation = 0.05F;
 
 		final float[][] entrees_bruités = new float[entrees.length][entrees[0].length];
 		//attribution des valeurs bruitées entre >0 et <1
@@ -70,14 +74,24 @@ public class testNeurone
 		}
 
 		//boucle pour tester a avec des entrees bruités
-		for (int i = 0; i < entrees.length; ++i)
-		{
-			// Pour une entrée donnée
-			final float[] entree = entrees_bruités[i];
-			// On met à jour la sortie du neurone
-			n.metAJour(entree);
-			// On affiche cette sortie
-			System.out.println("Entree "+i+" : "+n.sortie());
+
+
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter("resultat_bruits_"+perturbation+".txt"))) {
+			for (int i = 0; i < entrees_bruités.length; ++i) {
+				// Pour une entrée donnée
+				final float[] entree = entrees_bruités[i];
+				// On met à jour la sortie du neurone
+				n.metAJour(entree);
+				// On affiche cette sortie
+				System.out.println("Entree "+i+" : "+n.sortie());
+				writer.write(  "entree bruitée : (" + (float) entrees_bruités[i][0] + " ; " + (float) entrees_bruités[i][1] + ")");
+				writer.write(", sortie: " + (float) n.sortie());
+				writer.newLine();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
+
+
 	}
 }
