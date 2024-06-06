@@ -86,17 +86,26 @@ public abstract class Neurone implements iNeurone
 				
 				// On calcule la sortie du neurone en fonction de ces entrées
 				metAJour(entree);
-				
-				// On regarde la différence avec le résultat attendu
-				
-				// Si l'erreur absolue dépasse la tolérance autorisée 
-					// On met à jour les poids synaptiques
-					
-					// On met aussi à jour le biais 
-					
-					// Et on mémorise que l'apprentissage n'est pas finalisé
+
+				// On regarde la diffÃ©rence avec le rÃ©sultat attendu
+				float erreur = resultats[i] - sortie();
+
+				// Si l'erreur absolue dÃ©passe la tolÃ©rance autorisÃ©e
+				if (Math.abs(erreur) > ToleranceSortie)
+				{
+					// On met Ã  jour les poids synaptiques
+					for (int j = 0; j < synapses.length; ++j)
+					{
+						synapses[j] += eta * erreur * entree[j];
+					}
+
+					// On met aussi Ã  jour le biais
+					biais += eta * erreur;
+
+					// Et on mÃ©morise que l'apprentissage n'est pas finalisÃ©
 					apprentissageFini = false;
 					compteurEchecs += 1;
+				}
 			}
 		}
 		while (!apprentissageFini);
