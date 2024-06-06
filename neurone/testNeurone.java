@@ -4,9 +4,12 @@ public class testNeurone
 	{
 		// Tableau des entrées de la fonction ET (0 = faux, 1 = vrai)
 		final float[][] entrees = {{0, 0}, {0, 1}, {1, 0}, {1, 1}};
+
+		final float[][] entrees_bruités = {{0.01F, 0.01F}, {0.01F, 0.99F}, {0.99F, 0.01F}, {0.99F, 0.01F}};
+
 		
 		// Tableau des sorties de la fonction ET
-		final float[] resultats = {0, 0, 0, 1};
+		final float[] resultats = {0, 1, 1, 1};
 		
 		// On crée un neurone taillé pour apprendre la fonction ET
 		final iNeurone n = new NeuroneHeaviside(entrees[0].length);
@@ -36,6 +39,25 @@ public class testNeurone
 		{
 			// Pour une entrée donnée
 			final float[] entree = entrees[i];
+			// On met à jour la sortie du neurone
+			n.metAJour(entree);
+			// On affiche cette sortie
+			System.out.println("Entree "+i+" : "+n.sortie());
+		}
+
+		System.out.print("\nEntrees bruités : \n");
+		//afficher le tableau des entres bruités
+		for (int i = 0; i < entrees_bruités.length; ++i)
+		{
+			for (int j = 0; j < entrees_bruités[i].length; ++j)
+				System.out.print(entrees_bruités[i][j]+" ");
+			System.out.print("\n");
+		}
+		//boucle pour tester a avec des entrees bruités
+		for (int i = 0; i < entrees.length; ++i)
+		{
+			// Pour une entrée donnée
+			final float[] entree = entrees_bruités[i];
 			// On met à jour la sortie du neurone
 			n.metAJour(entree);
 			// On affiche cette sortie
