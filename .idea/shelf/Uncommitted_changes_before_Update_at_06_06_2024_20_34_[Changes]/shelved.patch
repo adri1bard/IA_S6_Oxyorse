@@ -1,0 +1,102 @@
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" project-jdk-name=\"openjdk-22\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	
++++ b/.idea/misc.xml	
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" project-jdk-name="openjdk-22" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" project-jdk-name="16" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: neurone/testNeurone.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class testNeurone\r\n{\r\n\tpublic static void main(String[] args)\r\n\t{\r\n\t\t// Tableau des entrées de la fonction ET (0 = faux, 1 = vrai)\r\n\t\tfinal float[][] entrees = {{0, 0}, {0, 1}, {1, 0}, {1, 1}};\r\n\r\n\t\tfinal float[][] entrees_bruités = {{0.01F, 0.01F}, {0.01F, 0.99F}, {0.99F, 0.01F}, {0.99F, 0.01F}};\r\n\r\n\t\t\r\n\t\t// Tableau des sorties de la fonction ET\r\n\t\tfinal float[] resultats = {0, 1, 1, 1};\r\n\t\t\r\n\t\t// On crée un neurone taillé pour apprendre la fonction ET\r\n\t\tfinal iNeurone n = new NeuroneHeaviside(entrees[0].length);\r\n\t\t//final iNeurone n = new NeuroneSigmoide(entrees[0].length);\r\n\t\t//final iNeurone n = new NeuroneReLU(entrees[0].length);\r\n\t\t\r\n\t\tSystem.out.println(\"Apprentissage…\");\r\n\t\t// On lance l'apprentissage de la fonction ET sur ce neurone\r\n\t\tSystem.out.println(\"Nombre de tours : \"+n.apprentissage(entrees, resultats));\r\n\t\t\r\n\t\t// On affiche les valeurs des synapses et du biais\r\n\r\n\t\t// Conversion dynamique d'une référence iNeurone vers une référence neurone.\r\n\t\t// Sans cette conversion on ne peut pas accéder à synapses() et biais()\r\n\t\t// à partir de la référence de type iNeurone\r\n\t\t// Cette conversion peut échouer si l'objet derrière la référence iNeurone\r\n\t\t// n'est pas de type neurone, ce qui n'est cependant pas le cas ici\r\n\t\tfinal Neurone vueNeurone = (Neurone)n;\r\n\t\tSystem.out.print(\"Synapses : \");\r\n\t\tfor (final float f : vueNeurone.synapses())\r\n\t\t\tSystem.out.print(f+\" \");\r\n\t\tSystem.out.print(\"\\nBiais : \");\r\n\t\tSystem.out.println(vueNeurone.biais());\r\n\t\t\r\n\t\t// On affiche chaque cas appris\r\n\t\tfor (int i = 0; i < entrees.length; ++i)\r\n\t\t{\r\n\t\t\t// Pour une entrée donnée\r\n\t\t\tfinal float[] entree = entrees[i];\r\n\t\t\t// On met à jour la sortie du neurone\r\n\t\t\tn.metAJour(entree);\r\n\t\t\t// On affiche cette sortie\r\n\t\t\tSystem.out.println(\"Entree \"+i+\" : \"+n.sortie());\r\n\t\t}\r\n\r\n\t\tSystem.out.print(\"\\nEntrees bruités : \\n\");\r\n\t\t//afficher le tableau des entres bruités\r\n\t\tfor (int i = 0; i < entrees_bruités.length; ++i)\r\n\t\t{\r\n\t\t\tfor (int j = 0; j < entrees_bruités[i].length; ++j)\r\n\t\t\t\tSystem.out.print(entrees_bruités[i][j]+\" \");\r\n\t\t\tSystem.out.print(\"\\n\");\r\n\t\t}\r\n\t\t//boucle pour tester a avec des entrees bruités\r\n\t\tfor (int i = 0; i < entrees.length; ++i)\r\n\t\t{\r\n\t\t\t// Pour une entrée donnée\r\n\t\t\tfinal float[] entree = entrees_bruités[i];\r\n\t\t\t// On met à jour la sortie du neurone\r\n\t\t\tn.metAJour(entree);\r\n\t\t\t// On affiche cette sortie\r\n\t\t\tSystem.out.println(\"Entree \"+i+\" : \"+n.sortie());\r\n\t\t}\r\n\t}\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/neurone/testNeurone.java b/neurone/testNeurone.java
+--- a/neurone/testNeurone.java	
++++ b/neurone/testNeurone.java	
+@@ -4,12 +4,15 @@
+ 	{
+ 		// Tableau des entrées de la fonction ET (0 = faux, 1 = vrai)
+ 		final float[][] entrees = {{0, 0}, {0, 1}, {1, 0}, {1, 1}};
++		float perturbation = 0.1F;
+ 
+ 		final float[][] entrees_bruités = {{0.01F, 0.01F}, {0.01F, 0.99F}, {0.99F, 0.01F}, {0.99F, 0.01F}};
+ 
+ 		
+ 		// Tableau des sorties de la fonction ET
+-		final float[] resultats = {0, 1, 1, 1};
++		final float[] resultats = {0, 0, 0, 1};
++		// Tableau des sorties de la fonction OU
++		//final float[] resultats = {0, 0, 0, 1};
+ 		
+ 		// On crée un neurone taillé pour apprendre la fonction ET
+ 		final iNeurone n = new NeuroneHeaviside(entrees[0].length);
+@@ -57,7 +60,7 @@
+ 		for (int i = 0; i < entrees.length; ++i)
+ 		{
+ 			// Pour une entrée donnée
+-			final float[] entree = entrees_bruités[i];
++			final float[] entree = entrees[i];
+ 			// On met à jour la sortie du neurone
+ 			n.metAJour(entree);
+ 			// On affiche cette sortie
+Index: FFT/FFTCplx.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>class FFTCplx\r\n{\r\n\tpublic final static int TailleFFTtest = 16;\r\n\tpublic final static double Periode = 10;\r\n\r\n// \tprivate int taille;\r\n// \r\n// // Indiquer la taille permettra des optimisations par la suite\r\n// \tpublic FFTCplx(int taille)\r\n// \t{\r\n// \t\tthis.taille = taille;\r\n// \t}\r\n\r\n\t// Sous-signal obligatoirement découpé par pas de deux\r\n\tprivate static Complexe[] demiSignal(Complexe[] signal, int depart)\r\n\t{\r\n\t\tComplexe[] sousSignal = new Complexe[signal.length/2];\r\n\t\tfor (int i = 0; i < sousSignal.length; ++i)\r\n\t\t\tsousSignal[i] = signal[depart+2*i];\r\n\t\treturn sousSignal;\r\n\t}\r\n\t\r\n\tpublic static Complexe[] appliqueSur(Complexe[] signal)\r\n\t{\r\n\t\tComplexe[] trSignal = new Complexe[signal.length];\r\n\t\tif (signal.length == 1)\t// Cas trivial de la FFT d'une valeur unique\r\n\t\t\ttrSignal[0] = new ComplexeCartesien(signal[0].reel(), signal[0].imag());\r\n\t\telse\r\n\t\t{\r\n\t\t\t// Découpage des deux sous-groupes de données sur lesquels on applique la FFT\r\n\t\t\t// (voir définition de cours)\r\n\t\t\tfinal Complexe[] P0 = appliqueSur(demiSignal(signal, 0));\r\n\t\t\tfinal Complexe[] P1 = appliqueSur(demiSignal(signal, 1));\r\n\t\t\t// On applique le regroupement \"papillon\" pour créer le résultat final\r\n\t\t\tfor (int k = 0; k < signal.length/2; ++k)\r\n\t\t\t{\r\n\t\t\t\tfinal ComplexePolaire expo = new ComplexePolaire(1., -2.*Math.PI*k/signal.length);\r\n\t\t\t\tfinal Complexe temp = P0[k];\r\n\t\t\t\ttrSignal[k] = temp.plus(expo.fois(P1[k]));\r\n\t\t\t\ttrSignal[k+signal.length/2] = temp.moins(expo.fois(P1[k]));\r\n\t\t\t}\r\n\t\t}\r\n\t\treturn trSignal;\r\n\t}\r\n\r\n\tpublic static void main(String[] args)\r\n\t{\r\n\t\t// Création d'un signal test simple\r\n\t\tComplexe[] signalTest = new Complexe[TailleFFTtest];\r\n\t\tfor (int i = 0; i < TailleFFTtest; ++i)\r\n\t\t\tsignalTest[i] = new ComplexeCartesien(0, Math.cos(2.*Math.PI*i/TailleFFTtest*Periode));\r\n\t\t// On applique la FFT sur ce signal\r\n\t\tComplexe[] resultat = appliqueSur(signalTest);\r\n\t\t// On affiche les valeurs du résultat\r\n\t\tfor (int i = 0; i < resultat.length; ++i) {\r\n\t\t\tSystem.out.print(i+\" : (\"+(float)resultat[i].reel()+\" ; \"+(float)resultat[i].imag()+\"i)\");\r\n\t\t\tSystem.out.println(\", (\"+(float)resultat[i].mod()+\" ; \"+(float)resultat[i].arg()+\" rad)\");\r\n\t\t}\r\n\t}\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/FFT/FFTCplx.java b/FFT/FFTCplx.java
+--- a/FFT/FFTCplx.java	
++++ b/FFT/FFTCplx.java	
+@@ -1,7 +1,11 @@
++import java.io.BufferedWriter;
++import java.io.FileWriter;
++import java.io.IOException;
++
+ class FFTCplx
+ {
+ 	public final static int TailleFFTtest = 16;
+-	public final static double Periode = 10;
++	public final static double Periode = 1;
+ 
+ // 	private int taille;
+ // 
+@@ -48,7 +52,7 @@
+ 		// Création d'un signal test simple
+ 		Complexe[] signalTest = new Complexe[TailleFFTtest];
+ 		for (int i = 0; i < TailleFFTtest; ++i)
+-			signalTest[i] = new ComplexeCartesien(0, Math.cos(2.*Math.PI*i/TailleFFTtest*Periode));
++			signalTest[i] = new ComplexeCartesien(Math.cos(2.*Math.PI*i/TailleFFTtest*Periode), 0);
+ 		// On applique la FFT sur ce signal
+ 		Complexe[] resultat = appliqueSur(signalTest);
+ 		// On affiche les valeurs du résultat
+@@ -56,5 +60,14 @@
+ 			System.out.print(i+" : ("+(float)resultat[i].reel()+" ; "+(float)resultat[i].imag()+"i)");
+ 			System.out.println(", ("+(float)resultat[i].mod()+" ; "+(float)resultat[i].arg()+" rad)");
+ 		}
++		try (BufferedWriter writer = new BufferedWriter(new FileWriter("resultat_fft.txt"))) {
++			for (int i = 0; i < resultat.length; ++i) {
++				writer.write(i + " : (" + (float) resultat[i].reel() + " ; " + (float) resultat[i].imag() + "i)");
++				writer.write(", (" + (float) resultat[i].mod() + " ; " + (float) resultat[i].arg() + " rad)");
++				writer.newLine();
++			}
++		} catch (IOException e) {
++			e.printStackTrace();
++		}
+ 	}
+ }
