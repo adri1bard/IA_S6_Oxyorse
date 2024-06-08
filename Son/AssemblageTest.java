@@ -25,8 +25,9 @@ public class AssemblageTest {
             System.out.println(", (" + (float) resultat[i].mod() + " ; " + (float) resultat[i].arg() + " rad)");
         }
         //On crée un neurone qui apprends la FFT
-        System.out.println("Apprentissage…");
-        final iNeurone n = new NeuroneSigmoide(512);
+
+
+
         // On lance l'apprentissage de la fonction FFT sur ce neurone
         System.out.println("reatribution des valeurs...");
         float signalTestaprentissage[][] = new float[512][2];
@@ -36,10 +37,33 @@ public class AssemblageTest {
         }
         float resultatAprentissage[] = new float[512];
         for (int i = 0; i < 512; ++i) {
-            resultatAprentissage[i] = (float) resultat[i].mod();
+            resultatAprentissage[i] = (float) 1;
         }
         System.out.println("fin reattribution des valeurs...");
 
+
+        System.out.println("Apprentissage…");
+        final iNeurone n = new NeuroneSigmoide(signalTestaprentissage[0].length);
+        System.out.println("Nombre de tours : " + n.apprentissage(signalTestaprentissage, resultatAprentissage));
+
+
+
+
+        final Neurone vueNeurone = (Neurone) n;
+        System.out.print("Synapses : ");
+        for (final float f : vueNeurone.synapses())
+            System.out.print(f +"\t");
+        System.out.print("\nBiais : ");
+        System.out.println(vueNeurone.biais());
+
+        for (int i = 0; i < signalTestaprentissage.length; ++i) {
+            // Pour une entrée donnée
+            final float[] signaltest = signalTestaprentissage[i];
+            // On met à jour la sortie du neurone
+            n.metAJour(signaltest);
+            // On affiche cette sortie
+            System.out.println("Entree " + i + " : " + n.sortie());
+        }
 
 
     }
