@@ -5,12 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c42b133-67df-444f-8dcd-709c4694f52b" name="Changes" comment="attention boucle for + commentaire sur fichier">
-      <change afterPath="$PROJECT_DIR$/Sources sonores/Bruit.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sources sonores/Carre.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sources sonores/Combinaison.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sources sonores/Sinusoide.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sources sonores/Sinusoide2.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sources sonores/Sinusoide3Harmoniques.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/neurone/testEntreeBruite.java" beforeDir="false" afterPath="$PROJECT_DIR$/neurone/testEntreeBruite.java" afterDir="false" />
     </list>
@@ -41,7 +35,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging master",
+    "git-widget-placeholder": "master",
     "last_opened_file_path": "C:/Users/theol/Documents/ISEN/IA/IA"
   }
 }]]></component>
@@ -78,7 +72,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717838942306</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="attention boucle for + commentaire sur fichier">
+      <option name="closed" value="true" />
+      <created>1717840199276</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717840199276</updated>
+    </task>
+    <task id="LOCAL-00005" summary="attention boucle for + commentaire sur fichier">
+      <option name="closed" value="true" />
+      <created>1717840278862</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1717840278862</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
