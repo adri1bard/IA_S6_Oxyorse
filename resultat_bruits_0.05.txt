@@ -1,4 +1,0 @@
-entree bruitée : (0.0025451197 ; 0.047734905), sortie: 0.0
-entree bruitée : (0.04824593 ; 0.96110827), sortie: 1.0
-entree bruitée : (0.95184755 ; 0.0), sortie: 1.0
-entree bruitée : (0.9674471 ; 0.9595443), sortie: 1.0

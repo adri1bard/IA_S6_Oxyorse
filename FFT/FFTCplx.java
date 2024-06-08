@@ -5,7 +5,7 @@ import java.io.IOException;
 class FFTCplx
 {
 	public final static int TailleFFTtest = 16;
-	public final static double Periode = 4;
+	public final static double Periode = 2;
 
 // 	private int taille;
 // 
@@ -52,7 +52,12 @@ class FFTCplx
 		// Création d'un signal test simple
 		Complexe[] signalTest = new Complexe[TailleFFTtest];
 		for (int i = 0; i < TailleFFTtest; ++i)
+
+			//COMMENT MODIFIER LE SIGNAL D'ENTREE :
+			//La classe ComplexeCartesien est composé d'une partie reelle et d'une partie imaginaire
+			//C'est donc ici en remplaçant le 0 par un signal que nous pouvons placer sur l'axe imaginaire
 			signalTest[i] = new ComplexeCartesien(0, Math.sin(2.*Math.PI*i/TailleFFTtest*Periode));
+
 		// On applique la FFT sur ce signal
 		Complexe[] resultat = appliqueSur(signalTest);
 		// On affiche les valeurs du résultat

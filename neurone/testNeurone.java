@@ -33,7 +33,7 @@ public class testNeurone
 		final Neurone vueNeurone = (Neurone) n;
 		System.out.print("Synapses : ");
 		for (final float f : vueNeurone.synapses())
-			System.out.print(f + " ");
+			System.out.print(f +"\t");
 		System.out.print("\nBiais : ");
 		System.out.println(vueNeurone.biais());
 

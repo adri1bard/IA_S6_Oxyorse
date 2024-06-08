@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c42b133-67df-444f-8dcd-709c4694f52b" name="Changes" comment="attention boucle for + commentaire sur fichier">
-      <change afterPath="$PROJECT_DIR$/neurone/testNeuroneStats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FFT/FFTCplx.java" beforeDir="false" afterPath="$PROJECT_DIR$/FFT/FFTCplx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/neurone/NeuroneSigmoide.java" beforeDir="false" afterPath="$PROJECT_DIR$/neurone/NeuroneSigmoide.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/neurone/testEntreeBruite.java" beforeDir="false" afterPath="$PROJECT_DIR$/neurone/testEntreeBruite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/neurone/testNeurone.java" beforeDir="false" afterPath="$PROJECT_DIR$/neurone/testNeurone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/neurone/testNeuroneStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/neurone/testNeuroneStats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IA/FFTCplx.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IA/FFTCplx.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/IA/NeuroneSigmoide.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IA/NeuroneSigmoide.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/IA/testNeurone.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IA/testNeurone.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultat_bruits_0.05.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resultat_fft.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +66,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717743139256</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="attention boucle for + commentaire sur fichier">
+      <option name="closed" value="true" />
+      <created>1717747769900</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1717747769900</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

@@ -8,16 +8,21 @@ public class testNeuroneStats
         // Nom du fichier de sortie
         String tsvFile = "neuroneStats.tsv";
 
+        //COMMENT REALISER DES STATISTIQUES SUR LES POIDS DE NOS NEURONES :
+        //On va donc réaliser 100 fois l'apprentissage,
+        //puis écrire ces résultats dans un fichier TSV,
+        //l'ouvrir avec excel pour calculer les moyennes et ecarts types
+
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(tsvFile))) {
             // Écrire l'en-tête du fichier TSV
-            writer.write("Cycle\tSynapses\tBiais\n");
+            writer.write("Synapse 1\tSynapse 2\tBiais\n");
 
             // Boucle pour générer les données de test
             for (int c = 0; c < 100; c++) {
                 final float[][] entrees = {{0, 0}, {0, 1}, {1, 0}, {1, 1}};
-                final float[] resultats = {0, 0, 0, 1};
+                final float[] resultats = {0, 1, 1, 1};
 
-                final iNeurone n = new NeuroneHeaviside(entrees[0].length);
+                final iNeurone n = new NeuroneSigmoide(entrees[0].length);
                 System.out.println("Nombre de tours : " + n.apprentissage(entrees, resultats));
 
                 final Neurone vueNeurone = (Neurone) n;
@@ -32,7 +37,10 @@ public class testNeuroneStats
                 System.out.println(biais);
 
                 // Écrire les résultats dans le fichier TSV
-                writer.write(c + 1 + "\t" + synapses.toString().trim() + "\t" + biais + "\n");
+                for (final float g : vueNeurone.synapses()) {
+                    writer.write(g +"\t");
+                }
+                writer.write(biais + "\n");
             }
 
             System.out.println("Données de test écrites dans le fichier TSV avec succès.");
