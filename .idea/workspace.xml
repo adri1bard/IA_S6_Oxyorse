@@ -4,26 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3c42b133-67df-444f-8dcd-709c4694f52b" name="Changes" comment="Sons">
-      <change afterPath="$PROJECT_DIR$/Son/AssemblageTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/cody_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cody_history.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_06_2024_20_34__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_06_2024_20_34__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_06_2024_20_34__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_06_06_2024_20_34__Changes_1.xml" afterDir="false" />
+    <list default="true" id="3c42b133-67df-444f-8dcd-709c4694f52b" name="Changes" comment="Assemblagetest FFT fonctionnelle, et reatribution des valeurs complexes en valeurs reeles">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FFT/FFTCplx.java" beforeDir="false" afterPath="$PROJECT_DIR$/FFT/FFTCplx.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IA/Complexe.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IA/Complexe.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IA/ComplexeCartesien.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IA/ComplexeCartesien.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IA/ComplexePolaire.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IA/ComplexePolaire.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IA/FFTCplx.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IA/FFTCplx.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IA/Neurone.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IA/Neurone.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IA/NeuroneHeaviside.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IA/NeuroneHeaviside.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IA/NeuroneSigmoide.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IA/NeuroneSigmoide.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IA/Son.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IA/Son.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IA/iNeurone.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IA/iNeurone.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IA/testEntreeBruite.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IA/testEntreeBruite.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IA/testNeurone.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IA/testNeurone.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IA/testNeuroneStats.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IA/testNeuroneStats.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/IA/testSigmBruit.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/IA/testSigmBruit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Son/AssemblageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Son/AssemblageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/neurone/testEntreeBruite.java" beforeDir="false" afterPath="$PROJECT_DIR$/neurone/testEntreeBruite.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +39,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.CodyAccountHistoryMigration": "true",
+    "RunOnceActivity.CodyConvertUrlToCodebaseName": "true",
+    "RunOnceActivity.CodyHistoryLlmMigration": "true",
     "RunOnceActivity.CodyProjectSettingsMigration": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -101,7 +89,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1717665853825</updated>
-      <workItem from="1717843611202" duration="1842000" />
+      <workItem from="1717843611202" duration="3169000" />
+      <workItem from="1717929666801" duration="4920000" />
     </task>
     <task id="LOCAL-00001" summary="attention boucle for + commentaire sur fichier">
       <option name="closed" value="true" />
@@ -127,14 +116,34 @@
       <option name="project" value="LOCAL" />
       <updated>1717838942306</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Assemblagetest FFT fonctionnelle, et reatribution des valeurs complexes en valeurs reeles">
+      <option name="closed" value="true" />
+      <created>1717845580363</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717845580363</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="attention boucle for + commentaire sur fichier" />
-    <option name="LAST_COMMIT_MESSAGE" value="attention boucle for + commentaire sur fichier" />
+    <MESSAGE value="Assemblagetest FFT fonctionnelle, et reatribution des valeurs complexes en valeurs reeles" />
+    <option name="LAST_COMMIT_MESSAGE" value="Assemblagetest FFT fonctionnelle, et reatribution des valeurs complexes en valeurs reeles" />
   </component>
 </project>
