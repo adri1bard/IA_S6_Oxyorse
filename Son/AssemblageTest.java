@@ -5,25 +5,44 @@ public class AssemblageTest {
         System.out.println("Lecture du fichier WAV " + nomson);
         Son son = new Son(nomson); // Chargement du fichier sonore
         System.out.println("Fichier " + nomson + " : " + son.donnees().length + " échantillons à " + son.frequence() + "Hz");
+        //faire l'apprentissage sur 5blocs
         System.out.println("Bloc 1 : " + son.bloc_deTaille(1, 512).length + " échantillons à " + son.frequence() + "Hz");
+        System.out.println("Bloc 2 : " + son.bloc_deTaille(2, 512).length + " échantillons à " + son.frequence() + "Hz");
+        System.out.println("Bloc 3 : " + son.bloc_deTaille(3, 512).length + " échantillons à " + son.frequence() + "Hz");
+        System.out.println("Bloc 4 : " + son.bloc_deTaille(4, 512).length + " échantillons à " + son.frequence() + "Hz");
+        System.out.println("Bloc 5 : " + son.bloc_deTaille(5, 512).length + " échantillons à " + son.frequence() + "Hz");
+
 
         // Création d'un tableau de complexes pour contenir le signal
-        Complexe[] signalTest = new Complexe[512];
+        float  signalTest1R[] = son.bloc_deTaille(1, 512);
+
+        Complexe[] signalTestCplx1 = new Complexe[signalTest1R.length];
+        Complexe[] signalTestCplx2 = new Complexe[signalTest1R.length];
         for (int i = 0; i < 512; ++i) {
             // Conversion des données du signal en complexes (partie réelle et imaginaire)
-            signalTest[i] = new ComplexeCartesien(son.donnees()[i], 0);
+            signalTestCplx2[i] = new ComplexeCartesien(son.bloc_deTaille(1,512)[i], 0);
+            signalTestCplx1[i] = new ComplexeCartesien(son.bloc_deTaille(0,512)[i], 0);
         }
+//        //comparer les deux tableaux
+//        for (int i = 0; i < 512; ++i) {
+//            System.out.println("signalTestCplx1["+i+"] = "+signalTestCplx1[i].reel()+" signalTestCplx2["+i+"] = "+signalTestCplx2[i].reel());
+//        }
+
 
         // Application de la FFT sur le signal
-        Complexe[] resultat = FFTCplx.appliqueSur(signalTest);
+        Complexe[] resultat = FFTCplx.appliqueSur(signalTestCplx1);
+        Complexe[] resultat2 = FFTCplx.appliqueSur(signalTestCplx2);
 
         // Préparation des données pour l'apprentissage du neurone
         System.out.println("reatribution des valeurs...");
         float signalTestaprentissage[][] = new float[512][2];
+        float signalTestaprentissage2[][] = new float[512][2];
         for (int i = 0; i < 512; ++i) {
             // Stockage des parties réelle et imaginaire des résultats de la FFT
             signalTestaprentissage[i][0] = (float) resultat[i].reel();
             signalTestaprentissage[i][1] = (float) resultat[i].imag();
+            signalTestaprentissage2[i][0] = (float) resultat2[i].reel();
+            signalTestaprentissage2[i][1] = (float) resultat2[i].imag();
         }
         float resultatAprentissage[] = new float[512];
         for (int i = 0; i < 512; ++i) {
@@ -36,7 +55,7 @@ public class AssemblageTest {
         System.out.println("Apprentissage…");
         final iNeurone n = new NeuroneSigmoide(signalTestaprentissage[0].length);
         System.out.println("Nombre de tours : " + n.apprentissage(signalTestaprentissage, resultatAprentissage));
-
+        //System.out.println("Nombre de tours : " + n.apprentissage(signalTestaprentissage2, resultatAprentissage));
         // Affichage des synapses et du biais du neurone après apprentissage
         final Neurone vueNeurone = (Neurone) n;
         System.out.print("Synapses : ");
@@ -65,7 +84,7 @@ public class AssemblageTest {
         // Conversion des données du signal bruité en complexes
         Complexe[] signalTestbruite = new Complexe[512];
         for (int i = 0; i < 512; ++i) {
-            signalTestbruite[i] = new ComplexeCartesien(sonbruite.donnees()[i], 0);
+            signalTestbruite[i] = new ComplexeCartesien(sonbruite.bloc_deTaille(0,512)[i], 0);
         }
 
         // Application de la FFT sur le signal bruité
@@ -112,12 +131,12 @@ public class AssemblageTest {
         System.out.println("Lecture du fichier WAV " + nomsin2);
         Son sonsin = new Son(nomsin2);
         System.out.println("Fichier " + nomsin2 + " : " + sonsin.donnees().length + " échantillons à " + sonsin.frequence() + "Hz");
-        System.out.println("Bloc 1 : " + sonsin.bloc_deTaille(1, 512).length + " échantillons à " + sonsin.frequence() + "Hz");
+        System.out.println("Bloc 1 : " + sonsin.bloc_deTaille(0, 512).length + " échantillons à " + sonsin.frequence() + "Hz");
 
         // Conversion des données du second signal sinusoïdal en complexes
         Complexe[] signalTestsin2 = new Complexe[512];
         for (int i = 0; i < 512; ++i) {
-            signalTestsin2[i] = new ComplexeCartesien(sonsin.donnees()[i], 0);
+            signalTestsin2[i] = new ComplexeCartesien(sonsin.bloc_deTaille(0,515)[i], 0);
         }
 
         // Application de la FFT sur le second signal sinusoïdal
